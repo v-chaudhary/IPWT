@@ -1,0 +1,248 @@
+<html>
+<head>
+
+<script src="form_validate_js.js"></script>
+
+<script>
+
+function tag_color_change()
+	{
+		document.getElementById("myform").style.color = "blue";
+	}
+		
+	function tag_color_change_red()
+	{
+		document.getElementById("myform").style.color = "red";
+	}
+	
+function validateForm() 
+{		
+	i=validate_name("firstname");
+	if (i==false)
+	{
+		return i;
+	}
+
+	j=validate_name("lastname"); 
+	if (j==false)
+	{
+		return j;
+	}
+
+	k= validate_gender();
+	if (k==false)
+	{
+		return k;
+	}
+
+	l= validate_email();
+	if (l==false)
+	{
+		return l;
+	}
+
+	m= validate_number("registrationno");
+	if (m==false)
+	{
+		return m;
+	}
+
+	n= validate_password();
+	if (n==false)
+	{
+		return n;
+	}
+
+	o= validate_date();
+	if (o==false)
+	{
+		return o;
+	}
+
+	p= validate_number("phoneno");
+	if (p==false)
+	{
+		return p;
+	}
+
+	q= validate_multiple_list("subjects");
+	if (q==false)
+	{
+		return q;
+	}
+
+	r= validate_check_box();
+	if (r==false)
+	{
+		return r;
+	}
+	else 
+	{
+        return confirm('Do you really want to submit the form?');
+    }
+}
+
+</script>
+
+<style>
+
+form
+{
+	margin: 0 auto;
+	width: 550px;
+  /* To see the outline of the form */
+  	padding: 1em;
+  	border: 1px solid #CCC;
+  	border-radius: 2em;
+  	background-color: lightpink;
+}
+
+</style>
+
+</head>
+
+<body>
+	<form name="myform" id="myform" onsubmit="return validateForm();">
+		<input type="button" id="button1" style="background-color:blue;" onclick="tag_color_change()">
+		<input type="button" style="background-color:red;" onclick="tag_color_change_red()">
+		<h1><center><u>Form Validation</u></center></h1>
+		<!table style="color:blue">
+		<table>
+			<tr>
+				<td align="left">
+				<strong>Name:</strong>
+				</td>
+
+				<td position="absolute">
+				<input type="text" required="true" name="firstname" id="firstname" placeholder="First Name" />
+
+				<input type="text" required="true" name="lastname" id="lastname" placeholder="Last Name"><br>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td position="absolute">
+					<strong>Gender:</strong>
+				</td>
+				<td position="absolute">
+					<input type="radio" name="gender" id="male" value="male"/>Male
+					<input type="radio" name="gender" id="female" value="female"/>Female<br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Registration No:</strong>
+				</td>
+				<td position="absolute">
+					<input type="text" required="true" name="registrationno" id="registrationno" placeholder="Registration No" maxlength="8"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>E-mail:</strong>
+				</td>
+				<td position="absolute">
+					<input type="text" required="true" name="email" id="email" placeholder="Your Valid email"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Password:</strong>
+				</td>
+				<td position="absolute">
+					<input type="password" required="true" name="password" id="password" placeholder="Password"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Re-enter Password:</strong>
+				</td>
+				<td position="absolute">
+					<input type="password" required="true" name="repassword" id="repassword" placeholder="Re-Enter Password"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Date of Birth:</strong>
+				</td>
+
+				<td position="absolute">
+					<input type="Date" required="true" name="bday" id="bday"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Age:</strong>
+				</td>
+
+				<td position="absolute">
+					<input type="number" required="true" name="age" id="age" min="18"/><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Phone No:</strong>
+				</td>
+
+				<td position="absolute">
+					<input type="tel" required="true" name="phoneno" id="phoneno" minlength="10" maxlength="10" /><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<strong>Select Background Color:</strong>
+				</td>
+				<td position="absolute">
+					<select name="color" id="color"  required="true" onchange="validate_list()">
+						<option value="" >Select a color</option>
+						<option value="red">Red</option>
+						<option value="green">Green</option>
+						<option value="pink">Pink</option>
+						<option value="white">white</option>
+					</select><br>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<strong>Favourite Subjects:</strong>
+				</td>
+				<td position="absolute">
+					<select name="subjects" id="subjects" multiple>
+						<option value="c">C</option>
+						<option value="cpp">C++</option>
+						<option value="java">Java</option>
+						<option value="python">Python</option>
+					</select><br>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="hobbies"><strong>Hobbies:</strong></label>
+				</td>
+				<td position="absolute">
+					<input type="checkbox" name="hobbies" id="cricket" value="cricket"/>Cricket
+					<input type="checkbox" name="hobbies" id="netsurfing" value="netsurfing"/>Net Surfing
+					<input type="checkbox" name="hobbies" id="reading" value="reading"/>Reading<br>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<input type="submit" value="submit"\>
+					<input type="reset" value="reset"\>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
