@@ -1,0 +1,16 @@
+.flex-container 
+{
+    display: -webkit-flex;
+    display: flex;
+    width: 1000px;
+    height: auto;
+    background-color: lightgrey;
+}
+
+.flex-item 
+{
+    background-color: cornflowerblue;
+    width: auto;
+    height: auto;
+    margin: 10px;
+}
