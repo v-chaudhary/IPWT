@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Dynamic</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			.demo
+			{
+				color:red;
+			}
+		</style>
+        <script>
+			function add_child_blank()
+			{
+				//alert(str);
+				var child=document.createTextNode("createTextNode");		
+				var parent=document.getElementById("div1");
+				parent.appendChild(child);
+				
+				var br = document.createElement("br");
+				var hr = document.createElement("hr");
+				parent.appendChild(br);
+				parent.appendChild(hr);
+			}
+			
+            function add_child()
+			{
+				//alert("hello");
+				var str= "text" + add_child.counter++;
+				//alert(str);
+				var child=document.createElement("input");
+				child.setAttribute("type","text");
+				child.setAttribute("class","demo");
+				child.setAttribute("value",str);
+				//alert(child);
+				
+				var parent=document.getElementById("div1");
+				parent.appendChild(child);
+				
+				var br = document.createElement("br");
+				var hr = document.createElement("hr");
+				parent.appendChild(br);
+				parent.appendChild(hr);
+			}
+			
+			add_child.counter=0;
+			
+			function delete_child_start()
+			{
+				var parent=document.getElementById("div1");
+				parent.removeChild(parent.childNodes[0]);
+			}
+			
+			function delete_child_last()
+			{
+				var parent=document.getElementById("div1");
+				parent.removeChild(parent.lastChild);
+			}
+			
+			function tag_color_change()
+			{
+				document.getElementById("mybody").style.color = "blue";
+			}
+		
+			function tag_color_change_red()
+			{
+				document.getElementById("mybody").style.color = "red";
+			}
+        </script>
+    </head>
+    <body id="mybody" style="font-size:20px">
+        <div id="div1"></div>
+        <form style="margin:20px 20px 20px 20px; backgroundColor:lightgree; ">
+            <input type="text" id="text1" value="hello">
+			<br>
+			<br>
+            <input type="button" value="Add object with text" onclick="add_child()">
+			<br>
+			<input type="button" value="Delete object from starting" onclick="delete_child_start()">
+			<br>
+			<input type="button" value="Delete object from last" onclick="delete_child_last()">
+			<br>
+			<input type="button" value="Create Text Node" onclick="add_child_blank()">
+			
+			<br>
+			<input type="button" id="button1" style="background-color:blue;" onclick="tag_color_change()">
+			<br>
+			<input type="button" style="background-color:red;" onclick="tag_color_change_red()">
+        </form>
+		
+    </body>
+</html>
